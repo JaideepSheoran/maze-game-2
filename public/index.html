@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maze 2.0</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img class="logo_img" height="60px" src="https://upload.wikimedia.org/wikipedia/en/0/0c/Xcode_icon.png"
+                alt="XCode" />
+        </div>
+        <div class="game_controls">
+            <button onclick="solveMaze()">Solution</button>
+            <button onclick="createMaze()">Reset</button>
+        </div>
+    </div>
+    <div id="board">
+        <!-- Canvas Element -->
+    </div>
+    <div id="win_container">
+        <div class="box">
+            <h2>Maze Game</h2>
+            <h1>💰 YOU WIN 💰</h1>
+            <div class="setters">
+                <button id="game_reset">Restart</button>
+                <button id="win_setter">Close</button>
+            </div>
+        </div>
+    </div>
+</body>
+    <script src="sketch.js"></script>
+</html>

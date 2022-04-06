@@ -1,0 +1,14 @@
+{
+  "name": "maze_game",
+  "version": "1.0.0",
+  "description": "Maze 2.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jaideep Sheoran",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
