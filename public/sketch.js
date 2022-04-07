@@ -51,23 +51,15 @@ function moveTouch(e) {
 
     if (Math.abs(diffX) > Math.abs(diffY)) {
         if (diffX > 0) {
-            // swiped left
             leftMove();
-            alert('LEFT');
         } else {
-            // swiped right
             rightMove();
-            alert('RIGHT');
         }
     } else {
         if (diffY > 0) {
-            // swiped up
             upMove();
-            alert('UP');
         } else {
-            // swiped down
             downMove();
-            alert('DOWN');
         }
     }
 
@@ -294,7 +286,6 @@ function solveMaze() {
         c.visited = true;
         s.push(c);
     }
-    console.log(s.length);
     lp = false;
 }
 
@@ -344,12 +335,7 @@ function keyPressed() {
             checkStuff();
             PATH.push(curr);
         }else{
-            PATH.pop();
-            while(stack.length > 1 && stack.at(-1) != PATH.at(-1)){
-                stack[stack.length-1].visited = false;
-                stack.pop();
-            }
-            curr = stack.at(-1);
+            trackBack();
         }
     }
     if (key == 's' && curr.j + 1 < col && !curr.walls[2]) {
@@ -363,12 +349,7 @@ function keyPressed() {
             checkStuff();
             PATH.push(curr);
         }else{
-            PATH.pop();
-            while(stack.length > 1 && stack.at(-1) != PATH.at(-1)){
-                stack[stack.length-1].visited = false;
-                stack.pop();
-            }
-            curr = stack.at(-1);
+            trackBack();
         }
     }
     if (key == 'd' && curr.i + 1 < row && !curr.walls[1]) {
@@ -382,12 +363,7 @@ function keyPressed() {
             checkStuff();
             PATH.push(curr);
         }else{
-            PATH.pop();
-            while(stack.length > 1 && stack.at(-1) != PATH.at(-1)){
-                stack[stack.length-1].visited = false;
-                stack.pop();
-            }
-            curr = stack.at(-1);
+            trackBack();
         }
     }
     if (key == 'a' && curr.i - 1 >= 0 && !curr.walls[3]) {
@@ -401,12 +377,7 @@ function keyPressed() {
             checkStuff();
             PATH.push(curr);
         }else{
-            PATH.pop();
-            while(stack.length > 1 && stack.at(-1) != PATH.at(-1)){
-                stack[stack.length-1].visited = false;
-                stack.pop();
-            }
-            curr = stack.at(-1);
+            trackBack();
         }
     }
     return null;
@@ -418,7 +389,6 @@ function checkStuff() {
         WINDIV.style.display = 'flex';
         return null;
     }
-    console.log(n);
     while (n != null) {
         stack.push(n);
         curr.visited = true;
@@ -465,13 +435,7 @@ function leftMove() {
             checkStuff();
             PATH.push(curr);
         }else{
-            PATH.pop();
-            while(stack.length > 1 && stack[stack.length-1] != PATH[PATH.length-1]){
-                stack[stack.length-1].visited = false;
-                stack.pop();
-            }
-            curr = stack[stack.length - 1];
-            alert(`${curr.i} + ${curr.j}`);
+            trackBack();
         }
     }
 }
@@ -487,13 +451,7 @@ function rightMove() {
             checkStuff();
             PATH.push(curr);
         }else{
-            PATH.pop();
-            while(stack.length > 1 && stack[stack.length-1] != PATH[PATH.length-1]){
-                stack[stack.length-1].visited = false;
-                stack.pop();
-            }
-            curr = stack[stack.length - 1];
-            alert(`${curr.i} + ${curr.j}`);
+            trackBack();
         }
     }
 }
@@ -509,13 +467,7 @@ function upMove() {
             checkStuff();
             PATH.push(curr);
         }else{
-            PATH.pop();
-            while(stack.length > 1 && stack[stack.length-1] != PATH[PATH.length-1]){
-                stack[stack.length-1].visited = false;
-                stack.pop();
-            }
-            curr = stack[stack.length - 1];
-            alert(`${curr.i} + ${curr.j}`);
+            trackBack();
         }
     }
 }
@@ -531,13 +483,16 @@ function downMove() {
             checkStuff();
             PATH.push(curr);
         }else{
-            PATH.pop();
-            while(stack.length > 1 && stack[stack.length-1] != PATH[PATH.length-1]){
-                stack[stack.length-1].visited = false;
-                stack.pop();
-            }
-            curr = stack[stack.length - 1];
-            alert(`${curr.i} + ${curr.j}`);
+            trackBack();
         }
     }
+}
+
+function trackBack(){
+    PATH.pop();
+    while(stack.length > 1 && stack[stack.length-1] != PATH[PATH.length-1]){
+        stack[stack.length-1].visited = false;
+        stack.pop();
+    }
+    curr = stack[stack.length - 1];
 }
