@@ -466,11 +466,12 @@ function leftMove() {
             PATH.push(curr);
         }else{
             PATH.pop();
-            while(stack.length > 1 && stack.at(-1) != PATH.at(-1)){
+            while(stack.length > 1 && stack[stack.length-1] != PATH[PATH.length-1]){
                 stack[stack.length-1].visited = false;
                 stack.pop();
             }
-            curr = stack.at(-1);
+            curr = stack[stack.length - 1];
+            alert(`${curr.i} + ${curr.j}`);
         }
     }
 }
@@ -487,11 +488,12 @@ function rightMove() {
             PATH.push(curr);
         }else{
             PATH.pop();
-            while(stack.length > 1 && stack.at(-1) != PATH.at(-1)){
+            while(stack.length > 1 && stack[stack.length-1] != PATH[PATH.length-1]){
                 stack[stack.length-1].visited = false;
                 stack.pop();
             }
-            curr = stack.at(-1);
+            curr = stack[stack.length - 1];
+            alert(`${curr.i} + ${curr.j}`);
         }
     }
 }
@@ -508,11 +510,11 @@ function upMove() {
             PATH.push(curr);
         }else{
             PATH.pop();
-            while(stack.length > 1 && stack.at(-1) != PATH.at(-1)){
+            while(stack.length > 1 && stack[stack.length-1] != PATH[PATH.length-1]){
                 stack[stack.length-1].visited = false;
                 stack.pop();
             }
-            curr = stack.at(-1);
+            curr = stack[stack.length - 1];
             alert(`${curr.i} + ${curr.j}`);
         }
     }
@@ -530,11 +532,12 @@ function downMove() {
             PATH.push(curr);
         }else{
             PATH.pop();
-            while(stack.length > 1 && stack.at(-1) != PATH.at(-1)){
+            while(stack.length > 1 && stack[stack.length-1] != PATH[PATH.length-1]){
                 stack[stack.length-1].visited = false;
                 stack.pop();
             }
-            curr = stack.at(-1);
+            curr = stack[stack.length - 1];
+            alert(`${curr.i} + ${curr.j}`);
         }
     }
 }
