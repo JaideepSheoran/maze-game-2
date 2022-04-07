@@ -513,7 +513,7 @@ function upMove() {
                 stack.pop();
             }
             curr = stack.at(-1);
-            alert(curr.i , curr.j);
+            alert(`${curr.i} + ${curr.j}`);
         }
     }
 }
