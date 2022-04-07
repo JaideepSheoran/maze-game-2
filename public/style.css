@@ -16,6 +16,10 @@
     background-color: black;
 }
 
+.git_link_ref{
+    filter: invert(1);
+}
+
 .logo {
     padding: 0px 15px;
 }
