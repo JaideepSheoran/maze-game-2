@@ -452,47 +452,86 @@ function onlyOneMove(i, j) {
 }
 
 function leftMove() {
-    if (curr.i - 1 >= 0 && !curr.walls[3] && !maze[curr.i - 1][curr.j].visited) {
-        let n = maze[curr.i - 1][curr.j];
-        if (n != null) {
-            stack.push(n);
-            curr.visited = true;
-            curr = n;
+    if (curr.i - 1 >= 0 && !curr.walls[3]) {
+        if(!maze[curr.i - 1][curr.j].visited){
+            let n = maze[curr.i - 1][curr.j];
+            if (n != null) {
+                stack.push(n);
+                curr.visited = true;
+                curr = n;
+            }
+            checkStuff();
+            PATH.push(curr);
+        }else{
+            PATH.pop();
+            while(stack.length > 1 && stack.at(-1) != PATH.at(-1)){
+                stack[stack.length-1].visited = false;
+                stack.pop();
+            }
+            curr = stack.at(-1);
         }
-        checkStuff();
     }
 }
-
 function rightMove() {
-    if (curr.i + 1 < row && !curr.walls[1] && !maze[curr.i + 1][curr.j].visited) {
-        let n = maze[curr.i + 1][curr.j];
-        if (n != null) {
-            stack.push(n);
-            curr.visited = true;
-            curr = n;
+    if (curr.i + 1 < row && !curr.walls[1]) {
+        if(!maze[curr.i + 1][curr.j].visited){
+            let n = maze[curr.i + 1][curr.j];
+            if (n != null) {
+                stack.push(n);
+                curr.visited = true;
+                curr = n;
+            }
+            checkStuff();
+            PATH.push(curr);
+        }else{
+            PATH.pop();
+            while(stack.length > 1 && stack.at(-1) != PATH.at(-1)){
+                stack[stack.length-1].visited = false;
+                stack.pop();
+            }
+            curr = stack.at(-1);
         }
-        checkStuff();
     }
 }
 function upMove() {
-    if (curr.j - 1 >= 0 && !curr.walls[0] && !maze[curr.i][curr.j - 1].visited) {
-        let n = maze[curr.i][curr.j - 1];
-        if (n != null) {
-            stack.push(n);
-            curr.visited = true;
-            curr = n;
+    if (curr.j - 1 >= 0 && !curr.walls[0]) {
+        if(!maze[curr.i][curr.j - 1].visited){
+            let n = maze[curr.i][curr.j - 1];
+            if (n != null) {
+                stack.push(n);
+                curr.visited = true;
+                curr = n;
+            }
+            checkStuff();
+            PATH.push(curr);
+        }else{
+            PATH.pop();
+            while(stack.length > 1 && stack.at(-1) != PATH.at(-1)){
+                stack[stack.length-1].visited = false;
+                stack.pop();
+            }
+            curr = stack.at(-1);
         }
-        checkStuff();
     }
 }
 function downMove() {
-    if (curr.j + 1 < col && !curr.walls[2] && !maze[curr.i][curr.j + 1].visited) {
-        let n = maze[curr.i][curr.j + 1];
-        if (n != null) {
-            stack.push(n);
-            curr.visited = true;
-            curr = n;
+    if (curr.j + 1 < col && !curr.walls[2]) {
+        if(!maze[curr.i][curr.j + 1].visited){
+            let n = maze[curr.i][curr.j + 1];
+            if (n != null) {
+                stack.push(n);
+                curr.visited = true;
+                curr = n;
+            }
+            checkStuff();
+            PATH.push(curr);
+        }else{
+            PATH.pop();
+            while(stack.length > 1 && stack.at(-1) != PATH.at(-1)){
+                stack[stack.length-1].visited = false;
+                stack.pop();
+            }
+            curr = stack.at(-1);
         }
-        checkStuff();
     }
 }
