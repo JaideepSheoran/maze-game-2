@@ -50,7 +50,6 @@ function moveTouch(e) {
     var diffY = initialY - currentY;
 
     if (Math.abs(diffX) > Math.abs(diffY)) {
-        // sliding horizontally
         if (diffX > 0) {
             // swiped left
             leftMove();
@@ -59,7 +58,6 @@ function moveTouch(e) {
             rightMove();
         }
     } else {
-        // sliding vertically
         if (diffY > 0) {
             // swiped up
             upMove();
