@@ -53,17 +53,21 @@ function moveTouch(e) {
         if (diffX > 0) {
             // swiped left
             leftMove();
+            alert('LEFT');
         } else {
             // swiped right
             rightMove();
+            alert('RIGHT');
         }
     } else {
         if (diffY > 0) {
             // swiped up
             upMove();
+            alert('UP');
         } else {
             // swiped down
             downMove();
+            alert('DOWN');
         }
     }
 
