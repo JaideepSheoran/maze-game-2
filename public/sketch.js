@@ -455,7 +455,7 @@ function onlyOneMove(i, j) {
 
 function leftMove() {
     if (curr.i - 1 >= 0 && !curr.walls[3]) {
-        if(!maze[curr.i - 1][curr.j].visited){
+        if(maze[curr.i - 1][curr.j].visited === false){
             let n = maze[curr.i - 1][curr.j];
             if (n != null) {
                 stack.push(n);
@@ -476,7 +476,7 @@ function leftMove() {
 }
 function rightMove() {
     if (curr.i + 1 < row && !curr.walls[1]) {
-        if(!maze[curr.i + 1][curr.j].visited){
+        if(maze[curr.i + 1][curr.j].visited === false){
             let n = maze[curr.i + 1][curr.j];
             if (n != null) {
                 stack.push(n);
@@ -497,7 +497,7 @@ function rightMove() {
 }
 function upMove() {
     if (curr.j - 1 >= 0 && !curr.walls[0]) {
-        if(!maze[curr.i][curr.j - 1].visited){
+        if(maze[curr.i][curr.j - 1].visited === false){
             let n = maze[curr.i][curr.j - 1];
             if (n != null) {
                 stack.push(n);
@@ -518,7 +518,7 @@ function upMove() {
 }
 function downMove() {
     if (curr.j + 1 < col && !curr.walls[2]) {
-        if(!maze[curr.i][curr.j + 1].visited){
+        if(maze[curr.i][curr.j + 1].visited === false){
             let n = maze[curr.i][curr.j + 1];
             if (n != null) {
                 stack.push(n);
